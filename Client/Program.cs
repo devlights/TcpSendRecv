@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.Net;
@@ -165,7 +165,15 @@ namespace Client
                                 }
                                 catch (IOException ioEx)
                                 {
-                                    this._errQueue.Add(ioEx);
+                                    if (ioEx.InnerException is SocketException sockEx)
+                                    {
+                                        this._msgQueue.Add(new Message{Value=$"[SEND] socket error ({sockEx.Message})"});
+                                    }
+                                    else
+                                    {
+                                        this._errQueue.Add(ioEx);
+                                    }
+
                                     break;
                                 }
                                 
