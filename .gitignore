@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# https://rider-support.jetbrains.com/hc/en-us/community/posts/115000661950-A-lot-of-files-in-contentModel-xml
+/.idea/.idea.TcpSendRecv/.idea/contentModel.xml
